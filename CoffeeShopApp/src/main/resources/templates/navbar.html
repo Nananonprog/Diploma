@@ -1,0 +1,71 @@
+
+<!--<nav class="navbar navbar-expand-lg bg-body-tertiary" th:fragment="menu">-->
+<!--    <div class="container-fluid">-->
+<!--        <a class="navbar-brand" th:href="@{/}">Main</a>-->
+<!--        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--        </button>-->
+<!--        <div class="collapse navbar-collapse" id="navbarNav">-->
+<!--            <ul class="navbar-nav">-->
+<!--                <th:block th:if="${user == null}">-->
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link active" aria-current="page" th:href="@{/register}">Register</a>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link" th:href="@{/signin}">Login</a>-->
+<!--                    </li>-->
+<!--                </th:block>-->
+<!--                <th:block th:if="${user != null}">-->
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link" th:href="@{/user/home}">Menu</a>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link" th:href="@{/user/profile}">Profile</a>-->
+<!--                    </li>-->
+<!--                </th:block>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" th:href="@{/about}">About us</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+<header>
+<nav class="navbar section-content" th:fragment="menu">
+    <a th:href="@{/}" class="nav-logo">
+        <h2 class="logo-text">Coffee</h2>
+    </a>
+    <ul class="nav-menu">
+        <button id="menu-close-button" class="fas fa-times"></button>
+        <th:block th:if="${user == null}">
+        <li class="nav-item">
+            <a th:href="@{/register}" class="nav-link">Register</a>
+        </li>
+        <li class="nav-item">
+            <a th:href="@{/signin}" class="nav-link">Login</a>
+        </li>
+        </th:block>
+        <th:block th:if="${user != null}">
+            <li class="nav-item">
+            <a th:href="@{/user/home}" class="nav-link">My List</a>
+        </li>
+            <li class="nav-item" th:if="${user.role=='ROLE_USER'}">
+            <a th:href="@{/user/profile}" class="nav-link">Profile</a>
+        </li>
+            <li class="nav-item" th:if="${user.role=='ROLE_ADMIN'}">
+                <a th:href="@{/admin/profile}" class="nav-link">Profile</a>
+            </li>
+        </th:block>
+        <li class="nav-item">
+            <a th:href="@{/about}" class="nav-link">About us</a>
+        </li>
+        <li class="nav-item">
+            <a th:href="@{/menu}" class="nav-link">Menu</a>
+        </li>
+        <li class="nav-item">
+            <a th:href="@{/contact}" class="nav-link">Contact</a>
+        </li>
+    </ul>
+    <button id="menu-open-button" class="fas fa-bars"></button>
+</nav>
+</header>

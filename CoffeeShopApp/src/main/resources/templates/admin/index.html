@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+  <div class="container p-5">
+    <p class="text-center fs-3 mt-4">Admin Dashboard</p>
+
+    <div class="row p-5">
+      <div class="col-md-4 mt-2">
+        <a href="/admin/loadAddItem" class="text-decoration-none">
+          <div class="card card-sh">
+            <div class="card-body text-center text-primary">
+              <img src="/images/icon/coffee-beans.png" class="imge">
+              <h4>Add Item</h4>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 mt-2">
+        <a href="/admin/category" class="text-decoration-none">
+          <div class="card card-sh">
+            <div class="card-body text-center text-primary">
+              <img src="/images/icon/app.png" class="imge">
+              <h4>Add Category</h4>
+
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 mt-2">
+        <a href="/admin/items" class="text-decoration-none">
+          <div class="card card-sh">
+            <div class="card-body text-center text-primary">
+              <img src="/images/icon/procurement.png" class="imge">
+              <h4>Items</h4>
+
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 mt-2">
+        <a href="/admin/users" class="text-decoration-none">
+          <div class="card card-sh">
+            <div class="card-body text-center text-primary">
+              <img src="/images/icon/user.png" class="imge">
+              <h4>Users</h4>
+
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 mt-2">
+        <a href="/admin/add-admin" class="text-decoration-none">
+          <div class="card card-sh">
+            <div class="card-body text-center text-primary">
+              <img src="/images/icon/admin.png" class="imge">
+              <h4>Add Admin</h4>
+
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 mt-2">
+        <a href="/admin/profile" class="text-decoration-none">
+          <div class="card card-sh">
+            <div class="card-body text-center text-primary">
+              <img src="/images/icon/admin_prof.png" class="imge">
+              <h4>Admin</h4>
+
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+</body>
+</html>

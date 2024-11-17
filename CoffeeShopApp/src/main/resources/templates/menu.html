@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+    <div class="container-fluid bg-secondary p-3">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <form action="">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="ch">
+                        <button class="btn btn-light text-dark ms-3">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mt-1">
+        <div class="row">
+        <div class="col-md-2">
+            <div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+                <div class="card-body">
+                    <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                        Category</a>
+                    <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                        Zernovoy</a>
+                    <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                        Rastvorimiy</a>
+                    <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                        Packed</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="col-md-10">
+                <div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+                    <div class="card-body">
+                        <p class="fs-3 text-center">Beverages</p>
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <img src="/images/arabica.png" alt="">
+                                        <p class="fs-5 text-center">Arabica</p>
+                                        <div class="row text-center">
+                                            <a href="/item" class="btn btn-secondary col-md-6 offset-md-3">View</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="col-md-3 mb-3">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                    <img src="/images/robusta.png" alt="">
+                                    <p class="fs-5 text-center">Robusta</p>
+                                    <div class="row text-center">
+                                        <a href="/item" class="btn btn-secondary col-md-6 offset-md-3">View</a>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
