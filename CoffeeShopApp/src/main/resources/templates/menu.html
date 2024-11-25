@@ -9,7 +9,7 @@
     <div class="container-fluid bg-secondary p-3">
         <div class="row">
             <div class="col-md-8 offset-md-2">
-                <form action="">
+                <form action="search" method="get">
                     <div class="input-group">
                         <input type="text" class="form-control" name="ch">
                         <button class="btn btn-light text-dark ms-3">Search</button>
@@ -23,15 +23,21 @@
         <div class="col-md-2">
             <div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
                 <div class="card-body">
+                    <p class="fs-5">Category</p>
                     <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                        Category</a>
-                    <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                        Zernovoy</a>
-                    <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                        Rastvorimiy</a>
-                    <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                        Packed</a>
+                    <a href="/menu"
+                       class="list-group-item list-group-item-action"
+                       aria-current="true"
+                       th:classappend="${paramValue == ''} ? 'active' : ''">
+                        All
+                        </a>
+                    <a th:href="@{'?category='+${c.name}}"
+                       class="list-group-item list-group-item-action"
+                       th:each="c:${categories}"
+                       th:text="${c.name}"
+                       th:classappend="${paramValue == c.name} ? 'active' : ''">
+                        </a>
+
                     </div>
                 </div>
             </div>
@@ -41,29 +47,35 @@
                     <div class="card-body">
                         <p class="fs-3 text-center">Beverages</p>
                         <div class="row">
-                            <div class="col-md-3 mb-3">
+                            <th:block th:if="${postsSize > 0}">
+                            <div class="col-md-3 mb-3" th:each="p:${posts}">
                                 <div class="card">
                                     <div class="card-body text-center">
-                                        <img src="/images/arabica.png" alt="">
-                                        <p class="fs-5 text-center">Arabica</p>
+                                        <img th:src="@{'/images/icon/'+${p.image}}" alt="" width="100%">
+                                        <p class="fs-5 text-center" th:text="${p.title}"></p>
                                         <div class="row text-center">
-                                            <a href="/item" class="btn btn-secondary col-md-6 offset-md-3">View</a>
+                                            <a th:href="@{'/item/'+ ${p.id}}" class="btn btn-secondary col-md-6 offset-md-3">View</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                                <div class="col-md-3 mb-3">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                    <img src="/images/robusta.png" alt="">
-                                    <p class="fs-5 text-center">Robusta</p>
-                                    <div class="row text-center">
-                                        <a href="/item" class="btn btn-secondary col-md-6 offset-md-3">View</a>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
+                            </th:block>
+                            <th:block th:unless="${postsSize > 0}">
+                                <p class="fs-4 text-center mt-4 text-success">This category does not have beverages</p>
+                            </th:block>
                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">Total positions: <span th:text="${totalElements}"></span></div>
+                    <div class="col-md-6">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
         </div>

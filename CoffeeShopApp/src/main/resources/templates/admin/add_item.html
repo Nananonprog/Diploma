@@ -8,13 +8,21 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-md-6 offset-md-3">
+            <div class="col-md-6 offset-md-3 mt-4">
                 <div class="card card-sh">
-                    <div class="card-header text-center fs-4">Add Item</div>
-
+                    <div class="card-header text-center fs-4 ">Add Item</div>
+                    <th:block th:if="${session.succMsg}">
+                        <p th:text="${session.succMsg}" class="text-success fw-bold text-center mt-4"></p>
+                        <th:block th:text="${@userService.removeSessionMessage()}">
+                        </th:block>
+                    </th:block>
+                    <th:block th:if="${session.errorMsg}">
+                        <p th:text="${session.errorMsg}" class="text-danger fw-bold text-center mt-4"></p>
+                        <th:block th:text="${@userService.removeSessionMessage()}">
+                        </th:block>
+                    </th:block>
                 <div class="card-body">
                     <form action="/admin/savePost" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="id">
                         <div class="mb-3">
                             Enter Product <input type="text" name="title" class="form-control">
                         </div>
@@ -25,7 +33,8 @@
                         <div class="mb-3">
                             Category
                             <select name="category" class="form-control">
-                                <option>Category</option>
+                                <option>--select--</option>
+                                <option th:each="c:${categories}" th:text="${c.name}"></option>
                             </select>
                         </div>
                         <div class="mb-3">

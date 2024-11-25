@@ -35,4 +35,10 @@ public class CategoryService implements ICategoryService {
         }
         return false;
     }
+
+    @Override
+    public Category getCategoryById(int id) {
+        Category category = categoryRepository.findById(id).orElse(null);
+        return category ;
+    }
 }

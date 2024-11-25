@@ -8,16 +8,9 @@
 <section>
     <div class="container card-sh">
         <div class="col-md-12 p-5">
-            <img src="/images/top-view-bowl-with-coffee-beans.jpg" alt="" class="image">
-            <p>Arabica beans are often considered superior in taste and dominate the specialty coffee market. Arabica beans are a single-origin coffee known for their flavors and grow at higher elevations.
-
-                An Arabica shrub grows up to 15 feet (5m) tall but is usually pruned to about 6 feet (2m) to make it more commercially viable.
-
-                Despite containing less caffeine than Robusta, Arabica tends to have a smooth, mild acidity and notes of fruit. Blends often feature Arabica for a well-balanced and aromatic cup.
-
-                Growing Regions: Arabica beans are grown at higher altitudes in regions with cooler temperatures. Key Arabica-producing countries include Ethiopia, Colombia, Brazil, Costa Rica, and Kenya.
-                Flavor Profile: Arabica beans are renowned for their complex flavors, including fruit notes, floral tones, and mild acidity.
-            </p>
+            <h3 th:text="${post.title}" class="text-center mb-5"></h3>
+            <img th:src="@{'/images/icon/' + ${post.image}}" alt="" class="image">
+            <div th:text="${post.content}"></div>
         </div>
     </div>
 </section>
